@@ -10,11 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack{
-            NavigationLink{
-                TemperatureView()
-            } label: {
-                Text("Temperature")
+            VStack (alignment: .leading){
+                NavigationLink{
+                    TemperatureView()
+                } label: {
+                    Text("Temperature")
+                }
+                NavigationLink {
+                    LengthView()
+                } label: {
+                    Text("Length")
+                }
+                NavigationLink {
+                    TimeView()
+                } label : {
+                    Text("Time")
+                }
+                NavigationLink {
+                    VolumeView()
+                } label: {
+                    Text("Volume")
+                }
+                Spacer()
             }
+           
             .navigationTitle("Conversion tool")
         }
         
