@@ -31,54 +31,27 @@ struct LengthView: View {
         if inputUnit == "miles" {
             return Double(length) * 1.60934 * 914.4
         }
-        
         return 0
     }
     
     var resultLength: Double {
         if inputUnit == "meters" {
-            return convertToMillimeters / 1000
+            if outputUnit == "meters"{
+                return convertToMillimeters / 1000
+            }
+            if outputUnit == "kilometers"{
+                return convertToMillimeters / 1000000
+            }
+            if outputUnit == "feet"{
+                return convertToMillimeters / 304.8
+            }
+            if outputUnit == "yards"{
+                return convertToMillimeters / 914.4
+            }
+            if outputUnit == "miles"{
+                return convertToMillimeters / 1609344
+            }
         }
-        
-//        if inputUnit == "meters" {
-//           
-//            
-//            if outputUnit == "meters"{
-//                return Double(length)
-//            }
-//            if outputUnit == "kilometers"{
-//                return Double(length) / 1000
-//            }
-//            if outputUnit == "feet"{
-//                return Double(length) * 3.281
-//            }
-//            if outputUnit == "yards"{
-//                return Double(length) * 1.094
-//            }
-//            if outputUnit == "miles"{
-//                return Double(length) / 1609
-//            }
-//        }
-        
-//        else if inputUnit == "kilometers" {
-//    
-//            
-//            if outputUnit == "meters"{
-//                return Double(length) * 1000
-//            }
-//            if outputUnit == "kilometers"{
-//                return Double(length)
-//            }
-//            if outputUnit == "feet"{
-//                return Double(length) * 3281
-//            }
-//            if outputUnit == "yards"{
-//                return Double(length) * 1094
-//            }
-//            if outputUnit == "miles"{
-//                return Double(length) / 1.609
-//            }
-//        }
         return 0
     }
     
