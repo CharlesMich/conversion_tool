@@ -29,13 +29,13 @@ struct LengthView: View {
             return Double(length) * 914.4
         }
         if inputUnit == "miles" {
-            return Double(length) * 1.60934 * 914.4
+            return Double(length) * 1609344
         }
         return 0
     }
     
     var resultLength: Double {
-        if inputUnit == "meters" {
+       
             if outputUnit == "meters"{
                 return convertToMillimeters / 1000
             }
@@ -51,25 +51,26 @@ struct LengthView: View {
             if outputUnit == "miles"{
                 return convertToMillimeters / 1609344
             }
-        }
         return 0
     }
     
     var body: some View {
         NavigationStack {
             Form {
+                
+                
                 Section ("Enter the length and unit") {
                     HStack{
                         TextField("Length", value: $length, format: .number)
                         Picker("", selection: $inputUnit) {
                             ForEach(units, id:\.self){
                                 Text($0)
-                                    
                             }
-                            .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                 }
+                
+                
                 Section("Pick output unit"){
                     Picker("", selection: $outputUnit){
                         ForEach(units, id:\.self){
@@ -78,6 +79,7 @@ struct LengthView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
                 
                 Section("Result") {
                     Text(resultLength, format: .number)
